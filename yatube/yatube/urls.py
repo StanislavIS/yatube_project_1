@@ -24,11 +24,12 @@ urlpatterns = [
     # Дорогой Джанго, если на сервер пришёл любой запрос (''),
     # перейди в файл urls приложения ice_cream 
     # и проверь там все path() на совпадение с запрошенным URL
-    path('', include('ice_cream.urls')),
+    # Добавляем к путям из приложения ice_cream пространство имён ice_cream
+    path('', include('ice_cream.urls', namespace='ice_cream')),
     # Если в приложении ice_cream не найдётся совпадений -
     # Django продолжит искать совпадения здесь, в головном файле urls.py.
-    path('', include('posts.urls')),
-    path('', include('groups.urls')),
+    path('posts/', include('posts.urls', namespace='posts')),
+    path('groups/', include('groups.urls')),
     # Встроенная админка Django подключена «из коробки» по адресу admin/
     path('admin/', admin.site.urls),
 ]

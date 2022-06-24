@@ -1,0 +1,36 @@
+
+<!DOCTYPE html> 
+<html lang="ru">
+{% extends 'base.html' %}
+             
+  <head> 
+    <title>{{ title }}</title>      
+  </head>
+  <body>
+    <h1>{{ text }}</h1>       
+    <header>
+      <!-- Это тег шаблонизатора include, сюда будет включён код
+      из файла includes/header.html -->
+      {% include 'includes/header.html' %}
+    </header>
+    <main>
+      {% comment %}
+      В HTML-тег <a> в атрибут href вместо адреса ссылки вставляем тег {% url %}
+      и указываем name нужного path() 
+      {% endcomment %}
+      <a class="navbar-brand" href="{% url 'ice_cream_list' %}">
+        Страница со списком сортов мороженого
+      </a> 
+      {% block content %}
+        Это главная страница проекта «Yatube»!
+      {% endblock %}
+      {% comment %}
+      В HTML-тег <a> в атрибут href вместо адреса ссылки вставляем тег {% url %}
+      и указываем name нужного path() 
+      {% endcomment %}
+    </main>
+    <footer>
+      {% include 'includes/footer.html' %} 
+    </footer>
+  </body>
+</html>

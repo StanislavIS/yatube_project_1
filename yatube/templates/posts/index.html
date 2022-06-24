@@ -1,0 +1,18 @@
+<!-- templates/posts/index.html -->
+<!DOCTYPE html> 
+<html lang="ru">
+  {% extends 'base.html' %}
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <a href="posts.index.html">
+    <h1>{{ text }}</h1>
+    </a>
+  </body>
+  <main>
+    {% block content %}
+    Здесь будет информация о группах проекта Yatube
+    {% endblock %} 
+  </main>
+</html> 
